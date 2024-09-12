@@ -1,9 +1,9 @@
 {
-    "build": {
-        "dockerfile": "./Dockerfile",
-        "context": "."
-    },
+    "image": "ubuntu:latest",
     "features": {
+        "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+            "packages": "build-essential,cmake,gdb"
+        },
         "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": "false",
             "configureZshAsDefaultShell": "false",

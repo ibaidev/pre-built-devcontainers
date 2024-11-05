@@ -1,4 +1,5 @@
 {
+    "name": "C",
     "image": "ubuntu:latest",
     "features": {
         "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
@@ -27,13 +28,15 @@
         }
     },
     "remoteUser": "ubuntu",
+    // Required by podman. Podman also requires `--userns=keep-id`
     "containerEnv": {
         "HOME": "/home/ubuntu"
     },
-    "capAdd": [
-        "SYS_PTRACE"
-    ],
+    // Required in selinux enabled systems.
     "securityOpt": [
         "label=type:container_runtime_t"
+    ],
+    "capAdd": [
+        "SYS_PTRACE"
     ]
 }
